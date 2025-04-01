@@ -11,7 +11,7 @@ fetch('https://fakestoreapi.com/products')
         const priceElements = document.querySelectorAll(`.product-price`);
         priceElements.forEach((priceElement, index) => {
             if (data[index]) {
-                priceElement.textContent = `${data[index].price}KR`;
+                priceElement.textContent = `$${data[index].price}`;
             }
         });
 
@@ -22,6 +22,14 @@ fetch('https://fakestoreapi.com/products')
             }
         });
     });
+document.querySelectorAll('.purchase-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const productCard = button.closest('.card');
+
+        const productName = productCard.querySelector('.product-title').textContent.trim();
+        window.location.href = `formular.html?product=${encodeURIComponent(productName)}`;
+    });
+});   
 
 //fetch('https://fakestoreapi.com/products')
 //   .then(data => console.log(data));

@@ -224,6 +224,7 @@
 .product-title {
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   /* Antal rader */
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -569,6 +570,7 @@ button,
 [type=reset],
 [type=submit] {
   -webkit-appearance: button;
+  appearance: button;
 }
 
 button:not(:disabled),
@@ -629,7 +631,13 @@ legend+* {
 
 [type=search] {
   -webkit-appearance: textfield;
+  appearance: textfield;
   outline-offset: -2px;
+}
+
+[type="submit"] {
+  -webkit-appearance: button; /* För WebKit-baserade webbläsare */
+  appearance: button; /* Standardiserad egenskap */
 }
 
 /* rtl:raw:
@@ -656,6 +664,7 @@ legend+* {
 ::file-selector-button {
   font: inherit;
   -webkit-appearance: button;
+  appearance: button;
 }
 
 output {
@@ -2800,7 +2809,6 @@ textarea.form-control-lg {
   background-size: contain;
   border: var(--bs-border-width) solid var(--bs-border-color);
   -webkit-print-color-adjust: exact;
-  color-adjust: exact;
   print-color-adjust: exact;
 }
 
@@ -13971,3 +13979,31 @@ h .dropdown-toggle {
   }
 }
 
+.custom-form {
+  max-width: 400px; /* Gör formuläret bredare */
+  margin: 0 auto; /* Centrerar formuläret */
+  padding: 20px; /* Lägg till inre marginal */
+  height: auto; /* Låt höjden anpassas efter innehållet */
+  min-height: 600px; /* Gör formuläret längre */
+  overflow: visible; /* Se till att inget innehåll döljs */
+}
+.card-form {
+  max-width: 500px; /* Gör kortet bredare */
+  padding: 30px; /* Lägg till inre marginal */
+  margin: 20px auto; /* Centrerar kortet */
+  border-radius: 10px; /* Rundade hörn */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lägg till en skugga */
+  min-height: 700px; /* Öka höjden för att visa alla fält */
+  overflow: visible; /* Se till att inget innehåll döljs */
+}
+
+/* Lägg till eventuella nya regler här */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Flytta innehållet till toppen av sidan */
+  min-height: 100vh; /* Gör att sidan fyller hela skärmen */
+  margin: 0;
+  padding: 20px; /* Lägg till lite utrymme runt sidan */
+  overflow-y: auto; /* Lägg till en scrollbar om innehållet är för långt */
+}
