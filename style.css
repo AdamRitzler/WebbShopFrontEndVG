@@ -220,6 +220,14 @@
   left: 0;
   z-index: 1000;
 }
+.slider .btn {
+  margin-right: auto; /* Flytta knappen längst till vänster */
+}
+.slider h1 {
+  margin: 0;
+  flex-grow: 1;
+  text-align: center;
+}
 
 .product-title {
   display: -webkit-box;
@@ -14006,4 +14014,56 @@ body {
   margin: 0;
   padding: 20px; /* Lägg till lite utrymme runt sidan */
   overflow-y: auto; /* Lägg till en scrollbar om innehållet är för långt */
-}
+}        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+        .receipt-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .receipt-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .checkmark {
+            font-size: 3rem;
+            color: #28a745;
+        }
+        .order-number {
+            font-size: 1.5rem;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .section-title {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .product-image {
+            max-width: 200px;
+            height: auto;
+            margin: 1rem auto;
+            display: block;
+            border-radius: 5px;
+        }
+        .btn-print {
+            margin-right: 10px;
+        }
+        @media print {
+            .no-print {
+                display: none;
+            }
+            body {
+                background: none;
+            }
+            .receipt-container {
+                box-shadow: none;
+                border: none;
+            }
+        }
