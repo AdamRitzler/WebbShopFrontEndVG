@@ -21,6 +21,10 @@ checkoutButton.addEventListener('click', () => {
 });
 
 clearCartButton.addEventListener('click', () => {
+    if (!order.length) {
+        alert("Varukorgen är redan tom!");
+        return;
+    }
     localStorage.clear();
     cartItems.innerHTML = '<h4 class="text-center">Varukorgen är tom!</h4>';
     console.log('Varukorg rensad!');
