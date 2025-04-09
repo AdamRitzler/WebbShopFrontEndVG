@@ -14068,8 +14068,8 @@ body {
             border-bottom: 1px solid #eee;
         }
         .product-image {
-            max-width: 200px;
-            height: auto;
+            max-width: 100px;
+            height: 100px;
             margin: 1rem auto;
             display: block;
             border-radius: 5px;
