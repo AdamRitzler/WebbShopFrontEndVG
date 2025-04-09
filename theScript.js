@@ -27,6 +27,7 @@ fetch('https://fakestoreapi.com/products')
             <button class="btn btn-primary purchase-btn" data-id="product${index + 1}">PURCHASE</button>
             </div>
             `;
+            
 
             row.appendChild(col);
         });
