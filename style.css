@@ -238,7 +238,7 @@ button:hover, .btn:hover {
   z-index: 1000;
 }
 .slider .btn {
-  margin-right: auto; /* Flytta knappen längst till vänster */
+  margin-right: auto; 
 }
 .slider h1 {
   margin: 0;
@@ -256,6 +256,21 @@ button:hover, .btn:hover {
   text-overflow: ellipsis;
 
 }
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; 
+}
+
+.quantity-display {
+  margin: 0;
+  font-weight: bold;
+  text-align: center;
+  min-width: 30px; 
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   :root {

@@ -1,18 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Hämta produktens namn från URL:en
-    const urlParams = new URLSearchParams(window.location.search);
-    const produkt = urlParams.get('product');
-    const price = urlParams.get('price');
-    const image = urlParams.get('image');
-    console.log('Produkt från URL:', produkt);
-    console.log('Pris från URL:', price);
-    console.log('Bild från URL:', image);
+    const order = JSON.parse(localStorage.getItem('orders')) || [];
+    const produkt = order.reduce((acc, item) => acc + (acc ? ', ' : '') + item.title, '') || null;
+    const price = order.reduce((acc, item) => acc + (acc ? ', ' : '') + item.price, '') || null;
+    const totalPrice = order.reduce((acc, item) => acc + (item.price * item.antal), 0).toFixed(2) || null;
+    const image = order.reduce((acc, item) => acc + (acc ? ', ' : '') + item.image, '') || null;
+    const antal = order.reduce((acc, item) => acc + (acc ? ', ' : '') + item.antal, '') || null;
 
     // Visa produktnamn om det finns
     const produktDisplay = document.getElementById('productInfo');
+    const totalPriceDisplay = document.getElementById('totalPrice');
     if (produktDisplay && produkt) {
-        produktDisplay.textContent = `Du beställer: ${produkt}`;
-    }else {
+        produktDisplay.innerHTML = `Du beställer:<br>${produkt}`;
+        totalPriceDisplay.textContent = `Totalt pris: $${totalPrice}`;
+    } else {
         console.error('Produktnamn hittades inte i URL eller elementet för produktnamn hittades inte!');
         alert("Ingen product hittades, Vänligen välj en produkt.");
         return;
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     name: name,
                     email: email,
                     phone: phone,
-                    address:  {
+                    address: {
                         street: address,
                         zip: postal,
                         city: city
@@ -63,12 +64,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 product: {
                     title: produkt || 'Okänd produkt',
                     price: price || 'Okänt pris',
-                    image: image || 'okänd bild'
+                    image: image || 'okänd bild',
+                    antal: antal || 'Okänt antal'
                 }
-               
+
             };
             localStorage.setItem('currentOrder', JSON.stringify(orderData));
-           
+
             window.location.href = "kvitto.html";
         }
     });

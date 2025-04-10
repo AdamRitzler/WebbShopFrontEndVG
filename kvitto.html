@@ -17,6 +17,7 @@
                 <div class="checkmark">✓</div>
                 <h2>Tack för din beställning!</h2>
                 <p>Din order är mottagen och behandlas nu.</p>
+                <p id="totalPrice" class="fw-bold"></p>
             </div>
             
             <div class="order-info">
@@ -28,6 +29,7 @@
             <div class="product-info">
                 <h3 class="section-title">Produktinformation</h3>
                 <div id="productInfo"></div>
+           
             </div>
             
             <div class="customer-info">
@@ -43,12 +45,11 @@
             </div>
             
             <div class="text-center mt-4 no-print">
-                <button onclick="window.print()" class="btn btn-outline-primary btn-print">
+                <button onclick="window.print()" class="btn btn-primary btn-print">
                     Skriv ut kvitto
                 </button>
-                <a href="index.html" class="btn btn-primary">
-                    Tillbaka till startsidan
-                </a>
+                <button class="btn btn-primary" id="homeButton">Tillbaka till startsidan</button>
+                
             </div>
         </div>
     </div>
