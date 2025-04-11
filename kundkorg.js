@@ -65,6 +65,7 @@ function removeItem(index) {
     if (itemToRemove) {
         order.splice(index, 1);
         localStorage.setItem('orders', JSON.stringify(order));
+        totalPrice.innerHTML = '';
         itemsInCart();
         console.log(`Produkt borttagen: ${itemToRemove.title}`);
     }
@@ -85,6 +86,7 @@ clearCartButton.addEventListener('click', () => {
         alert("Varukorgen är redan tom!");
         return;
     }
+    totalPrice.innerHTML = '';
     localStorage.clear();
     cartItems.innerHTML = '<h4 class="text-center">Varukorgen är tom!</h4>';
     console.log('Varukorg rensad!');
