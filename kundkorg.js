@@ -9,8 +9,8 @@ function itemsInCart(){
     order = JSON.parse(localStorage.getItem('orders')) || [];
     if (!order.length) {
         cartItems.innerHTML = '';
-        cartItems.innerHTML = '<h4 class="text-center">Varukorgen är tom!</h4>';
         totalPrice.innerHTML = '';
+        cartItems.innerHTML = '<h4 class="text-center">Varukorgen är tom!</h4>';
         console.log('Varukorgen är tom');
     } else {
         cartItems.innerHTML = order.map((item, index) => `
