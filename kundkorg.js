@@ -55,7 +55,7 @@ function decreaseQuantity(index) {
             localStorage.setItem('orders', JSON.stringify(order));
             itemsInCart();
         } else {
-            alert("Minst en produkt måste finnas i varukorgen.");
+           removeItem(index);
         }
     }
 }
